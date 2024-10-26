@@ -1,25 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
 
+const Header = () => {
+  const text = "Hello Sammi"
+
+  const getText = text => {
+    return (
+      <div>
+    <h1>Hello {text}</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sapiente magni enim, possimus eligendi laborum!
+    </p>
+  </div>
+    )
+  }
+
+  return <div> {getText('sammi')} </div>
+}
+const Field = () => {
+  const placeholder = 'Typing...'
+  const typeInput = "text"
+
+  return <input type= {typeInput} placeholder = {placeholder} />
+}
+
+const Button = () => {
+  const user = false
+  const login = 'login'
+
+  return <button>{user ? 'logout' : login }</button>
+}
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <div className='App'>
+    <Header/>
+    <Field/>
+    <Button/>
+  </div>
+  )
 }
 
 export default App;
