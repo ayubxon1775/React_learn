@@ -1,16 +1,20 @@
-import './App.css';
-import Button from '../button/Button';
-import Field from '../field/Field';
-import Header from '../header/Header';
-
-function App() {
+const User = ({ firstName, lastName, link}) => {
   return (
-  <div className='App'>
-    <Header />
-    <Field/>
-    <Button/>
-  </div>
+    <div>
+      <h1>Mening ismim - {firstName.name}, Sharifim - {lastName()}
+      </h1>
+      <a href={link}>You tube kanalim</a>
+    </div>
   )
 }
 
-export default App;
+const App = () => {
+  return ( 
+  <div>
+    <User firstName={{name : 'Samar'}} lastName={() => "Badriddinov" }  link="youtube.com" />
+    <User firstName={{name : 'Omar'}} lastName={() => "Abdullayev" }  link="google.com" />
+  </div>
+)
+}
+
+export default App
