@@ -5,8 +5,7 @@ class User extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      counter: 0,
-      text: 'text'
+      counter: 0, age: ''
     }
   }
   onIncrement = () => {
@@ -24,14 +23,21 @@ class User extends Component {
       counter: 0
     })
   }
+
+  changeHandler = (e, name) => {
+    this.setState({
+     age: e.target.value
+    })
+  }
   render() {
     const { firstName, lastName, link} = this.props
+    const {age, counter} = this.state
 
     return(
       <div className="w-50 mx-auto">
       <div className='border p-3 mt-5'>
         <h1>
-          Mening ismim - {firstName}, sharifim - {lastName}
+          Mening ismim - {firstName}, sharifim - {lastName}, yoshim - {age}
         </h1>
         <a href={link}>youtube kanalim</a>
         <div className='mt-3'>
@@ -44,8 +50,12 @@ class User extends Component {
         <button onClick={this.onRestart} className='btn btn-info'>
           Restart
         </button>
-        <p>{this.state.counter}</p>
+        <p>{counter}</p>
         </div>
+        <form>
+          <span>Yoshingiz</span>
+          <input type="text" className='form-control' onChange={e => this.changeHandler (e, 'sammi')} />
+        </form>
       </div>
       </div>
     )
